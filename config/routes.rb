@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  resources :scores, only: :index
+  match 'scores', to: 'scores#index', via: [:get, :post]
 end
