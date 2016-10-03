@@ -6,7 +6,7 @@ class ScoreSerializer < ActiveModel::Serializer
   end
 
   attribute :text do
-    "O Status atual é #{object.status}"
+    "O Status atual é `#{I18n.t object.status.downcase}`"
   end
 
   def attachments
