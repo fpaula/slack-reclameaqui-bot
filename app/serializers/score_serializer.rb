@@ -5,6 +5,10 @@ class ScoreSerializer < ActiveModel::Serializer
     'ephemeral'
   end
 
+  attribute :image_url do
+    "https://slack-reclameaqui-bot.herokuapp.com/images/#{object.status.downcase}.png"
+  end
+
   attribute :text do
     "O Status atual é `#{I18n.t object.status.downcase}`"
   end
