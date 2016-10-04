@@ -5,48 +5,56 @@ class ScoreSerializer < ActiveModel::Serializer
     'ephemeral'
   end
 
-  attribute :image_url do
-    "https://slack-reclameaqui-bot.herokuapp.com/images/#{object.status.downcase}.png"
-  end
-
   attribute :text do
     "O Status atual é `#{I18n.t object.status.downcase}`"
   end
 
   def attachments
     [
-      {
-        title: 'Não atendidas',
-        text: object.total_not_answered
-      },
-      {
-        title: 'Reclamações',
-        text: object.total_complains
-      },
-      {
-        title: 'Nota do consumidor',
-        text: object.consumer_score
-      },
-      {
-        title: 'Índice de solução',
-        text: "#{object.solved_percentual}%"
-      },
-      {
-        title: 'Respondidas',
-        text: object.total_answered
-      },
-      {
-        title: 'Avaliações',
-        text: object.total_evaluated
-      },
-      {
-        title: 'Índice de respostas',
-        text: "#{object.answered_percentual}%"
-      },
-      {
-        title: 'Fariam negócio novamente',
-        text: "#{object.deal_again_percentual}%"
-      }
+        {
+            color: "#36a64f",
+            fields: [
+                {
+                  title: 'Não atendidas',
+                  value: object.total_not_answered
+                },
+                {
+                  title: 'Reclamações',
+                  value: object.total_complains
+                },
+                {
+                  title: 'Nota do consumidor',
+                  value: object.consumer_score
+                },
+                {
+                  title: 'Índice de solução',
+                  value: "#{object.solved_percentual}%"
+                },
+                {
+                  title: 'Respondidas',
+                  value: object.total_answered
+                },
+                {
+                  title: 'Avaliações',
+                  value: object.total_evaluated
+                },
+                {
+                  title: 'Índice de respostas',
+                  value: "#{object.answered_percentual}%"
+                },
+                {
+                  title: 'Fariam negócio novamente',
+                  value: "#{object.deal_again_percentual}%"
+                }
+            ],
+            "image_url": "https://slack-reclameaqui-bot.herokuapp.com/images/#{object.status.downcase}.png",
+            "thumb_url": "https://slack-reclameaqui-bot.herokuapp.com/images/#{object.status.downcase}.png",
+            "footer": "Youse Bot",
+            "footer_icon": "https://slack-reclameaqui-bot.herokuapp.com/images/logo_youse.png",
+            "ts": 123456789
+        }
     ]
   end
 end
+
+#TODO: teste https://api.slack.com/docs/messages/builder
