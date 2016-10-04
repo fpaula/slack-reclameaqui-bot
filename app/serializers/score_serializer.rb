@@ -51,7 +51,7 @@ class ScoreSerializer < ActiveModel::Serializer
             "thumb_url": "https://slack-reclameaqui-bot.herokuapp.com/images/#{object.status.downcase}.png",
             "footer": "Youse Bot",
             "footer_icon": "https://slack-reclameaqui-bot.herokuapp.com/images/logo_youse.png",
-            "ts": 123456789
+            "ts": Time.zone.now.to_i
         }
     ]
   end
