@@ -47,10 +47,10 @@ class ScoreSerializer < ActiveModel::Serializer
                   value: "#{object.deal_again_percentual}%"
                 }
             ],
-            "image_url": "https://slack-reclameaqui-bot.herokuapp.com/images/#{object.status.downcase}.png",
-            "thumb_url": "https://slack-reclameaqui-bot.herokuapp.com/images/#{object.status.downcase}.png",
+            "image_url": "#{ENV['DEFAULT_HOST']}/images/#{object.status.downcase}.png",
+            "thumb_url": "#{ENV['DEFAULT_HOST']}/images/#{object.status.downcase}.png",
             "footer": "Youse Bot",
-            "footer_icon": "https://slack-reclameaqui-bot.herokuapp.com/images/logo_youse.png",
+            "footer_icon": ENV['LOGO_URL'],
             "ts": Time.zone.now.to_i
         }
     ]
