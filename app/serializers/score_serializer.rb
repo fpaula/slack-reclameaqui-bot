@@ -60,13 +60,11 @@ class ScoreSerializer < ActiveModel::Serializer
     {
       great: '#36a64f',
       no_index: '#a7a7a7',
-      not_recommended: 'Não recomendado',
+      not_recommended: '#8d549f',
       bad: '#e92526',
       regular: '#ebb322',
       good: '#415ba9',
       ra1000: '#009448'
     }[object.status.downcase.to_sym]
   end
-
-
 end
