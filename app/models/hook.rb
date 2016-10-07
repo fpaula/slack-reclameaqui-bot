@@ -1,7 +1,7 @@
 class Hook
   def self.trigger(params)
     score = Score.current(params)
-    connection.post("services/#{ENV['SLACK_API_TOKEN']}", ScoreSerializer.new(score).to_json)
+    connection.post("services/#{ENV['INCOMING_WEBHOOK_TOKEN']}", ScoreSerializer.new(score).to_json)
   end
 
   private
