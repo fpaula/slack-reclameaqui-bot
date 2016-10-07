@@ -12,7 +12,7 @@ class ScoreSerializer < ActiveModel::Serializer
   def attachments
     [
         {
-            color: "#36a64f",
+            color: color,
             fields: [
                 {
                   title: 'Não atendidas',
@@ -55,6 +55,18 @@ class ScoreSerializer < ActiveModel::Serializer
         }
     ]
   end
-end
 
-#TODO: teste https://api.slack.com/docs/messages/builder
+  def color
+    {
+      great: '#36a64f',
+      no_index: '#a7a7a7',
+      not_recommended: 'Não recomendado',
+      bad: '#e92526',
+      regular: '#ebb322',
+      good: '#415ba9',
+      ra1000: '#009448'
+    }[object.status.downcase.to_sym]
+  end
+
+
+end
