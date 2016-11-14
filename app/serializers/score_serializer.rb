@@ -47,7 +47,6 @@ class ScoreSerializer < ActiveModel::Serializer
                   value: "#{object.deal_again_percentual}%"
                 }
             ],
-            "image_url": "#{ENV['DEFAULT_HOST']}/images/#{object.status.downcase}.png",
             "thumb_url": "#{ENV['DEFAULT_HOST']}/images/#{object.status.downcase}.png",
             "footer": "Youse Bot",
             "footer_icon": ENV['LOGO_URL'],
