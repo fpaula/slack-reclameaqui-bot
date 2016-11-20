@@ -15,28 +15,44 @@ class ScoreSerializer < ActiveModel::Serializer
             color: color,
             fields: [
                 {
-                  title: "Não atendidas: #{object.total_not_answered}"
+                  title: 'Não atendidas',
+                  value: object.total_not_answered,
+                  short: true
                 },
                 {
-                  title: "Reclamações: #{object.total_complains}"
+                  title: 'Reclamações',
+                  value: object.total_complains,
+                  short: true
                 },
                 {
-                  title: "Nota do consumidor: #{object.consumer_score}"
+                  title: 'Nota do consumidor',
+                  value: object.consumer_score,
+                  short: true
                 },
                 {
-                  title: "Índice de solução: #{object.solved_percentual}%"
+                  title: 'Índice de solução',
+                  value: "#{object.solved_percentual}%",
+                  short: true
                 },
                 {
-                  title: "Respondidas: #{object.total_answered}"
+                  title: 'Respondidas',
+                  value: object.total_answered,
+                  short: true
                 },
                 {
-                  title: "Avaliações: #{object.total_evaluated}"
+                  title: 'Avaliações',
+                  value: object.total_evaluated,
+                  short: true
                 },
                 {
-                  title: "Índice de respostas: #{object.answered_percentual}%"
+                  title: 'Índice de respostas',
+                  value: "#{object.answered_percentual}%",
+                  short: true
                 },
                 {
-                  title: "Fariam negócio novamente: #{object.deal_again_percentual}%"
+                  title: 'Fariam negócio novamente',
+                  value: "#{object.deal_again_percentual}%",
+                  short: true
                 }
             ],
             "thumb_url": "#{ENV['DEFAULT_HOST']}/images/#{object.status.downcase}.png",
