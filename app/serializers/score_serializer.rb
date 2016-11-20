@@ -15,36 +15,28 @@ class ScoreSerializer < ActiveModel::Serializer
             color: color,
             fields: [
                 {
-                  title: 'Não atendidas',
-                  value: object.total_not_answered
+                  title: "Não atendidas: #{object.total_not_answered}"
                 },
                 {
-                  title: 'Reclamações',
-                  value: object.total_complains
+                  title: "Reclamações: #{object.total_complains}"
                 },
                 {
-                  title: 'Nota do consumidor',
-                  value: object.consumer_score
+                  title: "Nota do consumidor: #{object.consumer_score}"
                 },
                 {
-                  title: 'Índice de solução',
-                  value: "#{object.solved_percentual}%"
+                  title: "Índice de solução: #{object.solved_percentual}%"
                 },
                 {
-                  title: 'Respondidas',
-                  value: object.total_answered
+                  title: "Respondidas: #{object.total_answered}"
                 },
                 {
-                  title: 'Avaliações',
-                  value: object.total_evaluated
+                  title: "Avaliações: #{object.total_evaluated}"
                 },
                 {
-                  title: 'Índice de respostas',
-                  value: "#{object.answered_percentual}%"
+                  title: "Índice de respostas: #{object.answered_percentual}%"
                 },
                 {
-                  title: 'Fariam negócio novamente',
-                  value: "#{object.deal_again_percentual}%"
+                  title: "Fariam negócio novamente: #{object.deal_again_percentual}%"
                 }
             ],
             "thumb_url": "#{ENV['DEFAULT_HOST']}/images/#{object.status.downcase}.png",
